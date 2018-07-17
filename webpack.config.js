@@ -5,7 +5,7 @@ const webpack = require('webpack');
 
 module.exports = {
   entry: {
-    app: path.resolve(__dirname, 'javascripts/main.js'),
+    app: path.resolve(__dirname, 'src/**/*.js'),
   },
   output: {
     filename: '[name].js',

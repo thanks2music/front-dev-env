@@ -32,6 +32,9 @@
     "webpack-stream": "^5.0.0"
   },
   "dependencies": {
+    "gulp-babel": "^7.0.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-sourcemap": "^1.0.1",
     "node-notifier": "^5.1.2",
     "npm": "^6.2.0",
     "parcel-bundler": "^1.9.7",

@@ -17,9 +17,9 @@ const plumber = require('gulp-plumber');
 const header = require('gulp-header');
 const config = {
   supportBrowsers: ['ios >= 7', 'android >= 4.4'],
-  javascripts: 'javascripts/**/*.js',
-  sass: 'sass/**/*.scss',
-  images: 'images/**/*.+(jpeg|jpg|png|gif|svg)',
+  javascripts: 'src/**/*.js',
+  sass: 'src/**/*.+(scss|sass)',
+  images: 'src/**/*.+(jpeg|jpg|png|gif|svg)',
 };
 
 // エラー時のnotify表示
@@ -38,7 +38,7 @@ const notify = (taskName, error) => {
 gulp.task('sass-image', () => {
   return gulp.src(config.images)
     .pipe(sassImage({
-        targetFile: 'modules/_sass-image.scss',
+        targetFile: ['src/**/_sass-image.scss', 'src/**/_sass-image.sass'],
         images_path: 'images/',
         css_path: 'dist/css/',
         includeData: false,
@@ -47,7 +47,7 @@ gulp.task('sass-image', () => {
 });
 
 gulp.task('sass', () => {
-  return gulp.src('sass/**/*.scss')
+  return gulp.src(config.sass)
     .pipe(plumber({
       errorHandler: function(error) {
         console.log(error.messageFormatted);
@@ -57,7 +57,7 @@ gulp.task('sass', () => {
     .pipe(sass({
       outputStyle: 'compressed',
       importer: packageImporter({
-        extensions: ['.scss', '.css']
+        extensions: ['.scss', 'sass', '.css']
       })
     }))
     .pipe(autoprefixer({browsers: config.supportBrowsers, add: true}))
