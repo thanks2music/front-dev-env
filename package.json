@@ -33,6 +33,8 @@
   },
   "dependencies": {
     "node-notifier": "^5.1.2",
+    "npm": "^6.2.0",
+    "parcel-bundler": "^1.9.7",
     "reset-scss": "^1.0.0"
   }
 }
