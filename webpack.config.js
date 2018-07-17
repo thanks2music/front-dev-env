@@ -6,7 +6,6 @@ const webpack = require('webpack');
 module.exports = {
   entry: {
     app: path.resolve(__dirname, 'javascripts/main.js'),
-    vendor: path.resolve(__dirname, 'javascripts/vendor.js'),
   },
   output: {
     filename: '[name].js',
@@ -18,13 +17,13 @@ module.exports = {
       exclude: /node_modules/,
       loader: 'babel-loader',
       query: {
-        presets: ['es2015']
+        presets: ['env']
       }
     }],
   },
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
-      name: ['app', 'sub', 'vendor']
+      name: ['app']
     }),
     new webpack.optimize.UglifyJsPlugin({
       minimize: true,
