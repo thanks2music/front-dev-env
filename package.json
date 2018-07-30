@@ -1,10 +1,10 @@
 {
-  "name": "Gulpfile",
+  "name": "Frontdev",
   "version": "0.0.1",
   "description": "Frontend development environment.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "gulp": "gulp"
   },
   "keywords": [],
   "author": "Yoshiyuki Ito",
@@ -28,7 +28,7 @@
     "gulp-uglify": "^3.0.0",
     "imports-loader": "^0.8.0",
     "node-sass-package-importer": "^5.2.0",
-    "webpack": "^4.16.1",
+    "webpack": "^4.16.3",
     "webpack-stream": "^5.0.0"
   },
   "dependencies": {
@@ -38,6 +38,7 @@
     "node-notifier": "^5.1.2",
     "npm": "^6.2.0",
     "parcel-bundler": "^1.9.7",
-    "reset-scss": "^1.0.0"
+    "reset-scss": "^1.0.0",
+    "uglifyjs-webpack-plugin": "^1.2.7"
   }
 }

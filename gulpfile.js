@@ -69,7 +69,7 @@ gulp.task('webpack', () => {
     .on('error', function handleError() {
       this.emit('end');
     })
-    .pipe(gulp.dest('dist/scripts/'));
+  .pipe(gulp.dest('dist/'));
 });
 
 gulp.task('watch', () => {

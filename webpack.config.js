@@ -1,35 +1,28 @@
 'use strict';
 
-const path = require('path');
-const webpack = require('webpack');
+const path = require("path");
+const webpack = require("webpack");
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin")
 
 module.exports = {
-  entry: {
-    app: path.resolve(__dirname, 'src/**/*.js'),
-  },
+  mode: process.env.NODE_ENV || "development",
+  entry: ["./src/index.js"],
   output: {
-    filename: '[name].js',
-    path: path.resolve(__dirname, 'dist/scripts'),
+    filename: "app.js",
+    path: __dirname + "dist/"
   },
   module: {
-    loaders: [{
-      test: /\.js$/,
-      exclude: /node_modules/,
-      loader: 'babel-loader',
-      query: {
-        presets: ['env']
+    rules: [
+      {
+        test: /\.js$/,
+        use: "babel-loader",
+        exclude: /node_modules/
       }
-    }],
+    ]
   },
-  plugins: [
-    new webpack.optimize.CommonsChunkPlugin({
-      name: ['app']
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      minimize: true,
-      compress: {
-        warnings: false,
-      }
-    })
-  ]
+  optimization: {
+    minimizer: [
+      new UglifyJsPlugin()
+    ]
+  }
 }
