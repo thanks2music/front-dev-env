@@ -1,4 +1,13 @@
-## Env
+## Install
 
 - `npm i`
-- `gulp` or `npx parcel target_file`
+
+## Use
+
+Webpack with Gulp
+
+- `npm run gulp`
+
+Parcel
+
+- `npx parcel target_file`
